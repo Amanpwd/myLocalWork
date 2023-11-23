@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>masai calculator</title>
+    <style>
+         #container{
+            width:15%;
+            display: grid;
+            grid-template-columns: repeat(4,55px);
+            grid-template-rows: repeat(5,55px);
+            gap: 5px;
+            margin: auto;
+            line-height: 3.5;
+        }
+        #container > div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 600;
+            
+        }
+       
+        
+        .ans{
+            grid-column-start: 1;
+            grid-column-end:5 ;
+        }
+        .col{
+            background-color: black;
+            color: aliceblue;
+            
+        }
+        .red{
+            background-color: red;
+            color: aliceblue;
+        }
+        
+
+    </style>
+</head>
+<body><h1 style="text-align: center; color: teal;">Masai Calculator</h1>
+    <div id="container">
+        <div class="ans"></div>
+        
+        <div >1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="col">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="col">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div class="col">*</div>
+        <div class="red">C</div>
+        <div>0</div>
+        <div class="col">=</div>
+        <div class="col">/</div>
+    </div>
+    
+</body>
+</html>
