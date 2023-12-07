@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>masai calculator</title>
+    <style>
+         #container{
+            width:15%;
+            display: grid;
+            grid-template-columns: repeat(4,55px);
+            grid-template-rows: repeat(5,55px);
+            gap: 5px;
+            margin: auto;
+            line-height: 3.5;
+        }
+        #container > div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 600;
+            
+        }
+       
+        
+        #display{
+            grid-column-start: 1;
+            grid-column-end:5 ;
+        }
+        .col{
+            background-color: black;
+            color: aliceblue;
+            
+        }
+        .red{
+            background-color: red;
+            color: aliceblue;
+        }
+        
+
+    </style>
+</head>
+<body><h1 style="text-align: center; color: teal;">Masai Calculator</h1>
+
+    <div id="container">
+        <div id="display">Result</div>
+        <div class="keyp">1</div>
+        <div class="keyp">2</div>
+        <div class="keyp">3</div>
+        <div class="col">+</div>
+        <div class="keyp">4</div>
+        <div class="keyp">5</div>
+        <div class="keyp">6</div>
+        <div class="col">-</div>
+        <div class="keyp">7</div>
+        <div class="keyp">8</div>
+        <div class="keyp">9</div>
+        <div class="col">*</div>
+        <div class="red">C</div>
+        <div class="keyp">0</div>
+        <div class="coll">=</div>
+        <div class="col">/</div>
+    </div>
+    
+</body>
+</html>
+<script>
+    let head = document.getElementById("display")
+    let keypad = document.getElementsByClassName('keyp')
+    console.log(keypad)
+    let operatorButton = document.getElementsByClassName('col')
+    console.log(operatorButton)
+    let equalTo = document.getElementsByClassName('coll')[0]
+    console.log(equalTo)
+    
+
+    equalTo.addEventListener('click', function () {
+        head.innerText = calculate(fisrtNumber, operators, secondNumber)
+        
+    })
+    
+
+    let fisrtNumber = "";
+    let secondNumber = "";
+    let isfirstNumber = true;
+    let operators = "";
+
+    for (let i = 0; i < keypad.length; i++) {
+        keypad[i].addEventListener('click', function () {
+            if (isfirstNumber == true) {
+
+                fisrtNumber += keypad[i].innerText;
+                head.innerText = fisrtNumber;
+            }
+            else {
+                secondNumber += keypad[i].innerText;
+                head.innerText = secondNumber
+            }
+
+
+
+
+        })
+    }
+
+    for (let i = 0; i < operatorButton.length; i++) {
+        operatorButton[i].addEventListener('click', function () {
+            isfirstNumber = false;
+            head.innerText = operatorButton[i].innerText;
+            operators = operatorButton[i].innerText;
+            
+            
+            
+
+        })
+    }
+    function calculate(fisrtNumber, operators, secondNumber) {
+        switch (operators) {
+            case "+":
+                return Number(fisrtNumber) + Number(secondNumber);
+            case "-":
+                return Number(fisrtNumber) - Number(secondNumber);
+            case "*":
+                return Number(fisrtNumber) * Number(secondNumber);
+            case "/":
+                return Number(fisrtNumber) / Number(secondNumber);
+        }
+
+
+    }
+</script>
