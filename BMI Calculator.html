@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check Your BMI</h1>
+    <h2>Enter your Weight and Height below to check your BMI Result </h2>
+    <label for="">Put your Weight here (Kilogram)</label>
+    <input type="number" id="weight">
+    <br>
+    <label for="">Put your height here (Meter)</label>
+    <input type="number" id="height">
+    <br>
+    <button onclick="cal()">Calculate BMI</button>
+    <h2>Your BMI is <span id="dis">.....</span1></h2>
+    <h2>which means You are <span id="dis1">.....</span2></h2>
+    </body>      
+</html>
+<script>
+    
+    let weight = document.getElementById("weight");
+    let height = document.getElementById("height");
+    let display = document.getElementById('dis');
+    let display1 =document.getElementById('dis1')
+    
+
+    
+    
+    
+    function cal(){
+        
+        BMI = (Number(weight.value))/(Number(height.value)**2);
+        display.innerText = BMI.toFixed(2);
+        if(BMI.toFixed(2)<= 18.40){
+            display1.innerText = "UnderWeight";
+        }
+        else if(BMI.toFixed(2)>=18.5 && BMI.toFixed(2)<=24.9){
+            display1.innerText = "NormalWeight"
+        }
+        else if ( BMI.toFixed(2) >= 25 && BMI.toFixed(2) <= 29.9){
+            display1.innerText = "OverWeight"
+        }
+        else if(BMI.toFixed(2) >= 30){
+            display1.innerText = "Obese"
+        }
+        weight.value = "";
+        height.value = "";
+    }
+
+</script>
